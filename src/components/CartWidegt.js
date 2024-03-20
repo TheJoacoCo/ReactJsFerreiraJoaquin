@@ -1,10 +1,12 @@
-import React from "react";
+// src/components/CartWidget.js
+import React from 'react';
+import { Badge } from 'react-bootstrap';
 
-const CartWidget = () => {
+const CartWidget = ({ itemCount }) => {
     return (
-        <div className="cart-widget">
+        <div>
             <i className="fas fa-shopping-cart"></i>
-            <span className="badge badge-pill badge-danger">5</span>
+            <Badge variant="secondary">{itemCount}</Badge>
         </div>
     );
 };

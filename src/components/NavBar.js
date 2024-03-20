@@ -1,30 +1,115 @@
-import React from "react";
-import { Navbar, Nav, NavItem } from "react-bootstrap";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import BurguerButton from './BurguerButton';
 
-const NavBar = () => {
+function Navbar() {
+    const [clicked, setClicked] = useState(false);
+
+    const handleClick = () => {
+        setClicked(!clicked);
+    };
+
+    const handleLinkClick = () => {
+        setClicked(false); // Cierra el menú cuando se hace clic en un enlace
+    };
+
     return (
-        <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#">F1 Merch Store</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <NavItem>
-                        <NavLink href="#">Ropa</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#">Accesorios</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#">Coleccionables</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="#">Ofertas</NavLink>
-                    </NavItem>
-                </Nav>
-                <CartWidget />
-            </Navbar.Collapse>
-        </Navbar>
+        <>
+            <NavContainer>
+                <h2>Navbar <span>Responsive</span></h2>
+                <div className={`links ${clicked ? 'active' : ''}`}>
+                    <a onClick={handleLinkClick} href="#h">Home</a>
+                    <a onClick={handleLinkClick} href="#h">Shop</a>
+                    <a onClick={handleLinkClick} href="#h">About</a>
+                    <a onClick={handleLinkClick} href="#h">Contact</a>
+                    <a onClick={handleLinkClick} href="#h">Blog</a>
+                </div>
+                <div className='burguer'>
+                    <BurguerButton clicked={clicked} handleClick={handleClick} />
+                </div>
+                <BgDiv className={`initial ${clicked ? 'active' : ''}`}></BgDiv>
+            </NavContainer>
+        </>
     );
-};
+}
 
-export default NavBar;
+export default Navbar;
+
+const NavContainer = styled.nav`
+    h2{
+        color: white;
+        font-weight: 400;
+        span{
+            font-weight: bold;
+        }
+    }
+    padding: .4rem;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* Agregado para posicionar el BgDiv correctamente */
+    a{
+        color: white;
+        text-decoration: none;
+        margin-right: 1rem;
+    }
+    .links{
+        position: absolute;
+        top: 100%; /* Cambiado de -700px a 100% */
+        left: 0;
+        right: 0;
+        text-align: center;
+        transition: all .5s ease;
+        a{
+            color: white;
+            font-size: 2rem;
+            display: block;
+        }
+        @media(min-width: 768px){
+            position: initial;
+            margin: 0;
+            a{
+                font-size: 1rem;
+                color: white;
+                display: inline;
+            }
+            display: block;
+        }
+    }
+    .links.active{
+        width: 100%;
+        display: block;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        top: 100%; /* Cambiado de 30% a 100% */
+        left: 0;
+        right: 0;
+        text-align: center;
+        a{
+            font-size: 2rem;
+            margin-top: 1rem;
+            color: white;
+        }
+    }
+    .burguer{
+        @media(min-width: 768px){
+            display: none;
+        }
+    }
+`;
+
+const BgDiv = styled.div`
+    background-color: #222;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    transition: all .6s ease ;
+    &.active{
+        height: 100%; /* Cambiado de width: 100%; a height: 100%; */
+    }
+`;
