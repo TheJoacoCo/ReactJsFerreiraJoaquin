@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Encabezado */
+header {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Barra de navegación */
+nav {
+    background-color: #212121;
+    padding: 10px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+/* Contenido principal */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Tienda */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 20px;
+}
+
+.item {
+    text-align: center;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+}
+
+.item h2,
+.item p {
+    margin: 10px 0;
+}
+
+.item button {
+    padding: 10px 20px;
+    background-color: #212121;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.item button:hover {
+    background-color: #000000;
+}
+
+/* Pie de Página */
+footer {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-icons {
+    margin-bottom: 20px;
+}
+
+.footer-icons h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-icons ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-icons li {
+    margin-right: 10px;
+}
+
+.footer-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+footer p {
+    margin: 10px 0;
+    color: #f2f2f2;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
