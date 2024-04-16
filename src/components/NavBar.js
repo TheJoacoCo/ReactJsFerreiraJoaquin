@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import BurguerButton from './BurguerButton';
 
 function Navbar() {
@@ -10,7 +11,7 @@ function Navbar() {
     };
 
     const handleLinkClick = () => {
-        setClicked(false); // Cierra el menú cuando se hace clic en un enlace
+        setClicked(false); 
     };
 
     return (
@@ -18,11 +19,10 @@ function Navbar() {
             <NavContainer>
                 <h2>Navbar <span>Responsive</span></h2>
                 <div className={`links ${clicked ? 'active' : ''}`}>
-                    <a onClick={handleLinkClick} href="#h">Home</a>
-                    <a onClick={handleLinkClick} href="#h">Shop</a>
-                    <a onClick={handleLinkClick} href="#h">About</a>
-                    <a onClick={handleLinkClick} href="#h">Contact</a>
-                    <a onClick={handleLinkClick} href="#h">Blog</a>
+                    <Link onClick={handleLinkClick} to="/">Home</Link>
+                    <Link onClick={handleLinkClick} to="/category/1">Category 1</Link>
+                    <Link onClick={handleLinkClick} to="/category/2">Category 2</Link>
+                    {/* Agrega más enlaces para otras categorías si es necesario */}
                 </div>
                 <div className='burguer'>
                     <BurguerButton clicked={clicked} handleClick={handleClick} />

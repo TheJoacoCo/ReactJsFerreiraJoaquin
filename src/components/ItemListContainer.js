@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 function ItemListContainer({ greeting }) {
     return (
         <Container>
-            <h2>{greeting}</h2>
+            <h2>{hola}</h2>
         </Container>
     );
 }
